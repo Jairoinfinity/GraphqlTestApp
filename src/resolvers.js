@@ -27,6 +27,9 @@ export const resolvers = {
             const newUser = new User(input);
             await newUser.save();
             return newUser;
+        },
+        deleteUser: async (_, { _id }) => {
+            return await User.findByIdAndDelete(_id);
         }
     }
 }
